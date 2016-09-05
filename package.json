@@ -1,0 +1,24 @@
+{
+  "name": "voorhees",
+  "version": "1.0.0",
+  "description": "Express module to determine if JSON should assault your client.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarcastech/voorhees.git"
+  },
+  "keywords": [
+    "express",
+    "json",
+    "friday"
+  ],
+  "author": "Sarcastech",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sarcastech/voorhees/issues"
+  },
+  "homepage": "https://github.com/sarcastech/voorhees#readme"
+}
