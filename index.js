@@ -2,7 +2,7 @@
 
 function voorhees (viewPath) {
   return function (req, res, data) {
-    req.xhr ? res.json(data) : res.render(`${viewPath}`, data)
+    req.xhr ? res.json(data) : res.render(`${viewPath}`, data || {})
   }
 };
 
