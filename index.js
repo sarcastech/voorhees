@@ -1,9 +1,10 @@
 'use strict'
 
-function voorhees (viewPath) {
-  return function (req, res, data) {
-    req.xhr ? res.json(data) : res.render(`${viewPath}`, data || {})
+function voorhees (req, res, next) {
+  res.voorhees = function (data, view) {
+    req.xhr ? res.json(data) : res.render(view, data || {})
   }
-};
+  next()
+}
 
 module.exports = voorhees
