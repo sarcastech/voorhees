@@ -27,4 +27,16 @@ describe('Voorhees', function () {
       mockResponse.voorhees.res.should.eql(mockResponse)
     })
   })
+
+  describe('#setView', function () {
+    it('should return voorhees object', function () {
+      let returnValue = mockResponse.voorhees.setView('blank')
+      returnValue.should.eql(mockResponse.voorhees)
+    })
+
+    it('should set internal "view" property with value of argument', function () {
+      mockResponse.voorhees.setView('viewPath')
+      mockResponse.voorhees.view.should.eql('viewPath')
+    })
+  })
 })
