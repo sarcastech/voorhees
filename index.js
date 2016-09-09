@@ -11,9 +11,9 @@ Voorhees.prototype = {
     this.view = view
     return this
   },
-  respond: (data) => {
+  respond: (data, view) => {
     let res = this.res
-    this.req.xhr ? res.json(data) : res.render(this.view, data || {})
+    this.req.xhr ? res.json(data) : res.render(view || this.view, data || {})
   }
 }
 
