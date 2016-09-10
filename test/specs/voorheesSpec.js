@@ -13,7 +13,7 @@ let mockResponse = {
   'json': function () {},
   'render': function () {}
 }
-let mockRequest = {'type': 'request'}
+let mockRequest = {'xhr': true}
 let mockNext = function () {}
 
 describe('Voorhees', function () {
@@ -34,8 +34,8 @@ describe('Voorhees', function () {
       mockResponse.voorhees.should.exist
     })
 
-    it('should apply express request/response objects to voorhees object', function () {
-      mockResponse.voorhees.req.should.eql(mockRequest)
+    it('should apply express xhr/response objects to voorhees object', function () {
+      mockResponse.voorhees.xhr.should.be.true
       mockResponse.voorhees.res.should.eql(mockResponse)
     })
   })
@@ -55,7 +55,6 @@ describe('Voorhees', function () {
   describe('#respond', function () {
     describe('when request done via ajax', function () {
       it('should implement "json" function of response', function () {
-        mockRequest.xhr = true
         mockResponse.voorhees.respond({})
         mockResponse.json.should.have.been.called
       })
@@ -63,7 +62,7 @@ describe('Voorhees', function () {
 
     describe('when request done via http get/post/etc', function () {
       it('should implement "render" function of response', function () {
-        mockRequest.xhr = false
+        mockResponse.voorhees.xhr = false
         mockResponse.voorhees.respond({}, 'foo')
         mockResponse.render.should.have.been.called
       })
