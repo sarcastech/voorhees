@@ -11,9 +11,11 @@ Voorhees.prototype = Object.create({
     this.view = view
     return this
   },
-  respond: function (data, view) {
+  respond: function () {
     let res = this.res
-    this.xhr ? res.json(data) : res.render(view || this.view, data || {})
+    return function (data, view) {
+      this.xhr ? res.json(data) : res.render(view || this.view, data || {})
+    }.bind(this)
   }
 })
 

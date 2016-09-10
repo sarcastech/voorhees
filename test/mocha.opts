@@ -1,6 +1,6 @@
 --require chai
 
---reporter nyan
+--reporter spec
 
 --ui bdd
 

@@ -53,9 +53,13 @@ describe('Voorhees', function () {
   })
 
   describe('#respond', function () {
+    it('should return a function when called', function () {
+      let returnValue = mockResponse.voorhees.respond()
+      returnValue.should.be.a('function')
+    })
     describe('when request done via ajax', function () {
       it('should implement "json" function of response', function () {
-        mockResponse.voorhees.respond({})
+        mockResponse.voorhees.respond()({})
         mockResponse.json.should.have.been.called
       })
     })
@@ -63,7 +67,7 @@ describe('Voorhees', function () {
     describe('when request done via http get/post/etc', function () {
       it('should implement "render" function of response', function () {
         mockResponse.voorhees.xhr = false
-        mockResponse.voorhees.respond({}, 'foo')
+        mockResponse.voorhees.respond()({}, 'foo')
         mockResponse.render.should.have.been.called
       })
     })
