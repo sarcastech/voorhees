@@ -59,16 +59,19 @@ describe('Voorhees', function () {
     })
     describe('when request done via ajax', function () {
       it('should implement "json" function of response', function () {
-        mockResponse.voorhees.respond()({})
-        mockResponse.json.should.have.been.called
+        let mockModel = {'ajax': 'data'}
+        mockResponse.voorhees.respond()(mockModel)
+        mockResponse.json.should.have.been.calledWith(mockModel)
       })
     })
 
-    describe('when request done via http get/post/etc', function () {
+    describe('when request done via http get/post/etc and passed', function () {
       it('should implement "render" function of response', function () {
+        let mockModel = {'mock': 'model'}
+        let mockPath = '/mock/path'
         mockResponse.voorhees.xhr = false
-        mockResponse.voorhees.respond()({}, 'foo')
-        mockResponse.render.should.have.been.called
+        mockResponse.voorhees.respond()(mockModel, mockPath)
+        mockResponse.render.should.have.been.calledWith(mockPath, mockModel)
       })
     })
   })
