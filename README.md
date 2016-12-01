@@ -23,17 +23,9 @@ let voorhees = require('voorhees')
 router.use(voorhees)
 ```
 
-In either case, voorhees applies a property `voorhees` to the response object. This can then be accessed by your route handling code:
+In either case, voorhees applies itself as a property`voorhees` on the response object. This can then be accessed by your route handling code and calling the `respond()` function:
 ```javascript
 router.get('/', function (req, res){
-  res.voorhees.setView('/path/to/template')
-  let sendToClient = res.voorhees.respond()
-  sendToClient(res.locals) // or pass whatever data object you choose instead of res.locals
-})
-
-// setting view can also be chained
-router.get('/other', function (req, res){
-  let sendToClient = req.voorhees.setView('/path/to/other/template').respond()
-  sendToClient(res.locals) // or pass whatever data object you choose instead of res.locals
+  res.voorhees.respond('view/path', {'yourData': foo})
 })
 ```
