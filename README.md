@@ -29,3 +29,5 @@ router.get('/', function (req, res){
   res.voorhees.respond('view/path', {'yourData': foo})
 })
 ```
+
+Now, your response will either be JSON (if request was called via ajax), or will render your view as HTML.
