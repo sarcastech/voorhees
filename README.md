@@ -1,5 +1,5 @@
 # Voorhees
-Express module to determine if JSON should assault your client.
+Express middleware to determine if JSON should assault your client.
 
 ## Huh?
 Voorhees is an express middleware module that will call the [response](https://expressjs.com/en/4x/api.html#res) object's [json](https://expressjs.com/en/4x/api.html#res.json) or [render](https://expressjs.com/en/4x/api.html#res.render) functions, depending on if the [request](https://expressjs.com/en/4x/api.html#req) object's [xhr](https://expressjs.com/en/4x/api.html#req.xhr) property is either true (will call `json()`) or false (will call `render()`)

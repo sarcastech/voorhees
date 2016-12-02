@@ -1,7 +1,7 @@
 {
   "name": "voorhees",
   "version": "1.0.0",
-  "description": "Express module to determine if JSON should assault your client.",
+  "description": "Express middleware to determine if JSON should assault your client.",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha"
