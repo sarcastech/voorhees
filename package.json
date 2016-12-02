@@ -15,6 +15,9 @@
     "json",
     "friday"
   ],
+  "files": [
+    "*.js"
+  ],
   "author": "Sarcastech",
   "license": "MIT",
   "bugs": {
